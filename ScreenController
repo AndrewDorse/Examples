@@ -1,0 +1,33 @@
+public class ScreenController
+{
+    private ScreenView _view;
+     
+    public void Close()
+    {
+        Dispose();
+
+        if (_view == null)
+        {
+            return;
+        }
+
+        _view.CloseScreen();
+    }
+
+    public ScreenController(ScreenView view)
+    {
+        _view = view;
+
+        InputMain.EscKeyPress += ESC;
+    }
+
+    public virtual void ESC() 
+    {
+
+    }
+   
+    public virtual void Dispose()
+    {
+        InputMain.EscKeyPress -= ESC;
+    }
+}
