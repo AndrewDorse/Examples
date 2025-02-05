@@ -1,0 +1,17 @@
+using Scripts.Base;
+using static Enums;
+
+public class MainMenuScreenController : ScreenController
+{
+    private readonly MainMenuScreenView _view;
+    
+    public MainMenuScreenController(MainMenuScreenView view) : base(view)
+    {
+        _view = view;
+        _view.OpenScreen();
+
+        _view.singlePlayerButton.Setup(() => Master.ChangeGameStage(GameStage.MainMaps));
+        _view.settingsButton.Setup(() => Master.ChangeGameStage(GameStage.Settings));
+        _view.workshopButton.Setup(() => Master.ChangeGameStage(GameStage.Workshop));
+    } 
+}
